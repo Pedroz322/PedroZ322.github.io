@@ -9,20 +9,7 @@ body{
     margin: auto ;
     
 }
-.spider1,.movie{
-    display: block;
-    width: 400px;
-   
-    border-radius: 20px;
 
-}
-.spider1{
-    width: 380px;
-    height: 300px;
-   
-    margin-top: 20px;
-   
-}
 h1{
     text-decoration-line: underline ;
     text-align: center;
@@ -51,4 +38,26 @@ h1{
 .tobey2{
     display: inline-block;
    
+}
+.tobeypelis{
+        border:red dotted 2px;
+        
+}
+ol{
+    display: flex;
+  text-decoration: none;
+}
+li{
+    display: flex;
+    color: rgb(255, 0, 0);
+    width: 30%;
+    font-size: 25px;
+    justify-content: center;
+   text-decoration: none;
+    justify-content: space-between;
+}
+.tobeypelis:hover{
+    cursor: pointer;
+
+    margin: auto;
 }
