@@ -69,22 +69,72 @@ h1 {
 h2{
     color: red;
 }
+@media (max-width: 480px) {
+
+    /* Ajuste general */
+    body {
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Contenedor principal */
+    .man {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Sección */
+    .tobey {
+        width: 100%;
+    }
+
+    /* Cada película */
+    .movie {
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    /* Imágenes responsivas */
+    .spider1 {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Botón volver (emoji) */
+    a {
+        display: inline-block;
+        margin: 10px 0;
+        font-size: 24px;
+        text-decoration: none;
+    }
+}
 
     </style>
-    <!-- Marcado JSON-LD generado por el Asistente para el marcado de datos estructurados de Google. -->
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Movie",
-  "image": [
-    "https://pedroz322.github.io/imagenes/Spider_Man-945131720-large.jpg",
-    "https://pedroz322.github.io/imagenes/amazing%202.webp"
-  ]
-}
-</script>
 </head>
 <body>
    <h1>Peliculas de Tobey Maguire</h1>
+   <p><a href="index.html">🕷️</p></a>
    <main class="man"> 
         <img src="" alt="">
         <section class="tobey">
@@ -108,5 +158,4 @@ h2{
             </div>
         </section>
 </body>
-
 </html>

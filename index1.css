@@ -67,3 +67,55 @@ img{
     padding: 50px;
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* Cambiamos a columna */
+    .peliculas {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Imágenes más grandes en móvil */
+    .peliculas img {
+        width: 90%;
+    }
+
+    body {
+        padding: 10px;
+    }
+}
+
