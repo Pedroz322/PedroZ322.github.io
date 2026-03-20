@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobey Peliculas</title>
+    <link rel="stylesheet" href="">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://pedroz322.github.io/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Spider-Man",
+          "item": "https://pedroz322.github.io/spiderman/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tobey Maguire (2002–2007)",
+          "item": "https://pedroz322.github.io/spiderman/peliculastobey.html"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Trilogía Spider-Man – Tobey Maguire",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Movie",
+            "name": "Spider-Man",
+            "datePublished": "2002",
+            "director": {"@type": "Person", "name": "Sam Raimi"},
+            "actor": {"@type": "Person", "name": "Tobey Maguire"},
+            "description": "Peter Parker es un estudiante tímido que, tras ser mordido por una araña radiactiva, descubre que tiene poderes sobrehumanos.",
+            "image": "https://pedroz322.github.io/imagenes/Spider_Man-945131720-large.jpg"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Movie",
+            "name": "Spider-Man 2",
+            "datePublished": "2004",
+            "director": {"@type": "Person", "name": "Sam Raimi"},
+            "actor": {"@type": "Person", "name": "Tobey Maguire"},
+            "description": "Peter lucha por equilibrar su vida personal con sus deberes como héroe y debe enfrentar al Doctor Octopus.",
+            "image": "https://pedroz322.github.io/imagenes/spiderman2.jpg"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Movie",
+            "name": "Spider-Man 3",
+            "datePublished": "2007",
+            "director": {"@type": "Person", "name": "Sam Raimi"},
+            "actor": {"@type": "Person", "name": "Tobey Maguire"},
+            "description": "Peter enfrenta a Venom, el Hombre de Arena y el nuevo Duende Verde mientras lucha contra un simbionte alienígena.",
+            "image": "https://pedroz322.github.io/imagenes/spiderman3.jpg"
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+      
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #e62429;
+}
+
+
+.tobey {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+
+.movie {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+}
+
+
+.movie:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.45);
+}
+
+
+.movie img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.movie h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #ff3b3b;
+}
+
+
+.movie p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+h2{
+    color: red;
+}
+ .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            margin: 12px 0;
+            padding: 0 20px;
+            font-size: 0.85rem;
+            color: #aaa;
+            gap: 6px;
+        }
+        .breadcrumb li + li::before { 
+            content: "›"; 
+        margin-right: 6px; color: #666; }
+        .breadcrumb a { 
+            color: #e62429; 
+            text-decoration: none; }
+        .breadcrumb a:hover { 
+            text-decoration: underline; 
+        }
+@media (max-width: 480px) {
+
+    
+    body {
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    
+    .man {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tobey {
+        width: 100%;
+    }
+
+   
+    .movie {
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    
+    .spider1 {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+   
+    a {
+        display: inline-block;
+        margin: 10px 0;
+        font-size: 24px;
+        text-decoration: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+   <h1>Peliculas de Tobey Maguire</h1>
+   <p><a href="index.html">🕷️</p></a>
+   <ol class="breadcrumb" aria-label="Ruta de navegación">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../index.html#spiderman">Spider-Man</a></li>
+        <li>Tobey Maguire (2002–2007)</li>
+    </ol>
+
+   <main class="man"> 
+        <img src="" alt="">
+        <section class="tobey">
+            <h2>Tobey Maguire (2002–2007)</h2>
+            <div class="movie">
+                <h3>Spider-Man (2002)</h3>
+                <img src="imagenes/Spider_Man-945131720-large.jpg" alt="Spider-Man (2002)" class="spider1">
+                <p>Peter Parker es un estudiante tímido que, tras ser mordido por una araña radiactiva, descubre que tiene poderes sobrehumanos. Tras la muerte de su tío Ben, asume la responsabilidad de usar sus habilidades para proteger a Nueva York como Spider-Man. Enfrenta al villano Duende Verde (Norman Osborn), quien amenaza con destruir todo lo que Peter ama.</p>
+            </div>
+
+            <div class="movie">
+                <h3>Spider-Man 2 (2004)</h3>
+                <img src="imagenes/spiderman2.jpg" alt="Spider-Man 2 (2004)" class="spider1" loading="lazy">
+                <p>Peter lucha por equilibrar su vida personal con sus deberes como héroe. Sus poderes comienzan a fallar, y debe enfrentar al Doctor Octopus, un científico cuyos brazos mecánicos lo controlan. La película explora temas de sacrificio, identidad y redención.</p>
+            </div>
+
+            <div class="movie">
+                <h3>Spider-Man 3 (2007)</h3>
+                <img src="imagenes/spiderman3.jpg" alt="Spider-Man 3 (2007)" class="spider1" loading="lazy">
+                <p>Peter enfrenta nuevos enemigos: Venom (Eddie Brock), el Hombre de Arena y un Duende Verde vengativo. Un simbionte alienígena se adhiere a su traje, corrompiendo su personalidad. La película aborda la lucha interna contra la oscuridad y la importancia del perdón.</p>
+            </div>
+        </section>
+</body>
+</html>
