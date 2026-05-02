@@ -1,25 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- ACCESIBILIDAD: lang="es" para indicar el idioma principal (pauta 10 – legibilidad) -->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- ACCESIBILIDAD: Título descriptivo de la página (pauta 8 – navegable) -->
+    <title>Películas Animadas de Spider-Man | Guía Spider-Man</title>
+    <!-- ACCESIBILIDAD: Meta descripción (pauta 10) -->
+    <meta name="description" content="Películas animadas de Spider-Man: Into the Spider-Verse (2018) y Across the Spider-Verse (2023). Miles Morales y el multiverso.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://pedroz322.github.io/index.html"},
+        {"@type":"ListItem","position":2,"name":"Spider-Man","item":"https://pedroz322.github.io/spiderman/"},
+        {"@type":"ListItem","position":3,"name":"Películas Animadas","item":"https://pedroz322.github.io/spiderman/peliculasanimadas.html"}
+      ]
+    }
+    </script>
+
+    <style>
+        /* ACCESIBILIDAD: Enlace de saltar al contenido (pauta 8) */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #7b2dff;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 9999;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            color: #c084fc;
+        }
+
+        h2 {
+            color: #d8b4fe;
+            margin-left: 10px;
+        }
+
+        /* ACCESIBILIDAD: Enlace de inicio con zona táctil adecuada (pauta 9) */
+        .home-link {
+            display: inline-block;
+            font-size: 2rem;
+            padding: 8px;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .home-link:focus {
+            outline: 3px solid #c084fc;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            margin: 12px 0;
+            padding: 0 20px;
+            font-size: 0.85rem;
+            color: #aaa;
+            gap: 6px;
+        }
+        .breadcrumb li + li::before {
+            content: "›";
+            margin-right: 6px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #c084fc;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .era {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .movie {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.25);
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+
+        .movie:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 25px rgba(192, 132, 252, 0.45);
+        }
+
+        /* ACCESIBILIDAD: Foco visible para navegación por teclado (pauta 5) */
+        .movie:focus-within {
+            outline: 3px solid #c084fc;
+            outline-offset: 2px;
+        }
+
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .movie h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #d8b4fe;
+        }
+
+        .movie p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #fff;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+            h2 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            h3 {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+            p {
+                font-size: 14px;
+                line-height: 1.5;
+                text-align: justify;
+            }
+            .era {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .movie {
+                margin-bottom: 20px;
+                padding: 10px;
+                width: 100%;
+            }
+            .movie img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                border-radius: 8px;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-      <section class="era">
-            <h2>Películas Animadas</h2>
-             <p><a href="index.html">🕷️</p></a>
-            <div class="movie">
-                <h3>Spider-Man: Into the Spider-Verse (2018)</h3>
-                <img src="imagenes/animada 1.webp" alt="" loading="lazy">
-                <p>Miles Morales, un adolescente de Brooklyn, se convierte en Spider-Man tras un accidente con un colisionador de partículas. Conoce a otros Spider-People de distintas dimensiones, incluyendo a Peter B. Parker. La película revolucionó la animación con su estilo visual único y ganó el Óscar a Mejor Película Animada.</p>
-            </div>
 
-            <div class="movie">
+    <!-- ACCESIBILIDAD: Enlace de saltar al contenido (pauta 8 – navegable) -->
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <!-- ACCESIBILIDAD: <header> con role="banner" (pauta semántica) -->
+    <header role="banner">
+        <h1>Películas Animadas de Spider-Man</h1>
+    </header>
+
+    <!-- ACCESIBILIDAD: Breadcrumb con nav y aria-label (pauta 8) — añadido ya que antes faltaba -->
+    <nav aria-label="Ruta de navegación">
+        <ol class="breadcrumb">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.html#spiderman">Spider-Man</a></li>
+            <!-- ACCESIBILIDAD: Página actual con aria-current (pauta 8) -->
+            <li aria-current="page">Películas Animadas</li>
+        </ol>
+    </nav>
+
+    <!-- ACCESIBILIDAD: Enlace con aria-label descriptivo, estructura HTML correcta (pauta 1 y 8) -->
+    <a class="home-link" href="index.html" aria-label="Volver a la página de inicio de Spider-Man">🕷️</a>
+
+    <!-- ACCESIBILIDAD: <main> con id para el enlace de saltar (pauta 8) -->
+    <main id="contenido-principal">
+
+        <!-- ACCESIBILIDAD: <section> con aria-label para identificar la región (pauta semántica) -->
+        <section class="era" aria-label="Películas animadas de Spider-Man">
+
+            <h2>Películas Animadas</h2>
+
+            <!-- ACCESIBILIDAD: <article> para cada película como contenido autónomo -->
+            <article class="movie">
+                <h3>Spider-Man: Into the Spider-Verse (2018)</h3>
+                <!-- ACCESIBILIDAD: alt descriptivo (pauta 1 – alternativas textuales) -->
+                <img src="imagenes/animada 1.webp"
+                     alt="Póster de Spider-Man: Into the Spider-Verse (2018) con Miles Morales como Spider-Man"
+                     loading="lazy">
+                <p>Miles Morales, un adolescente de Brooklyn, se convierte en Spider-Man tras un accidente con un colisionador de partículas. Conoce a otros Spider-People de distintas dimensiones, incluyendo a Peter B. Parker. La película revolucionó la animación con su estilo visual único y ganó el Óscar a Mejor Película Animada.</p>
+            </article>
+
+            <article class="movie">
                 <h3>Spider-Man: Across the Spider-Verse (2023)</h3>
-                <img src="imagenes/animada 2.webp" alt="" loading="lazy">
+                <img src="imagenes/animada 2.webp"
+                     alt="Póster de Spider-Man: Across the Spider-Verse (2023) con Miles Morales y Gwen Stacy"
+                     loading="lazy">
                 <p>Miles se reúne con Gwen Stacy y otros Spider-Héroes para enfrentar una amenaza multiversal. Explora temas de destino, familia y responsabilidad, con una animación aún más innovadora. Es la segunda parte de una trilogía.</p>
-            </div>
+            </article>
+
         </section>
+
+    </main>
+
+    <!-- ACCESIBILIDAD: <footer> con role="contentinfo" (pauta semántica) -->
+    <footer role="contentinfo">
+        <p>© 2025 Guía de Películas de Spider-Man</p>
+    </footer>
+
 </body>
 </html>
