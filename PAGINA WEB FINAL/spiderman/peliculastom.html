@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- ACCESIBILIDAD: lang="es" para indicar el idioma principal (pauta 10 – legibilidad) -->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- ACCESIBILIDAD: Título descriptivo de la página (pauta 8 – navegable) -->
+    <title>Spider-Man MCU – Tom Holland (2016–presente) | Guía Spider-Man</title>
+    <!-- ACCESIBILIDAD: Meta descripción (pauta 10) -->
+    <meta name="description" content="Películas de Spider-Man con Tom Holland en el MCU: Civil War, Homecoming, Far From Home y No Way Home.">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,112 +36,103 @@
     </script>
 
     <style>
-    body{
-        background-color: black;
-    }
-.era {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px;
-}
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #cc0000;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 9999;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        body {
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        .era {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .era .movie {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 14px;
+            
+            box-shadow: 0 0 15px rgba(255, 213, 0, 0.25);
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+
+        .era .movie:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 25px rgba(255, 213, 0, 0.5);
+        }
+
+       
+        .era .movie:focus-within {
+            outline: 3px solid #ffe14d;
+            outline-offset: 2px;
+        }
+
+        .era .movie img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .era .movie h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #ffe14d;
+        }
+
+      
+        .home-link {
+            display: inline-block;
+            font-size: 2rem;
+            padding: 8px;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .home-link:focus {
+            outline: 3px solid #ffe14d;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
 
 
-.era .movie {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 0 15px rgba(255, 213, 0, 0.25); 
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: pointer;
-}
-
-
-.era .movie:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 25px rgba(255, 213, 0, 0.5);
-}
-
-
-.era .movie img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.era .movie h3 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    color: #ffe14d; 
-
-}
-h2{
-    color: white;
-}
-p{
-    color: white;
-}
-@media (max-width: 480px) {
-
-    body {
-        padding: 10px;
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    h3 {
-        font-size: 16px;
-        margin: 10px 0;
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 1.5;
-        text-align: justify;
-    }
-
-   
-    .era {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-   
-    .movie {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-
-    
-    .movie img {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        border-radius: 10px;
-        margin: 10px 0;
-    }
-
-    
-    a {
-        display: inline-block;
-        font-size: 24px;
-        margin: 10px 0;
-        text-decoration: none;
-    }
-}
- .breadcrumb {
+        .breadcrumb {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -147,46 +143,132 @@ p{
             color: #aaa;
             gap: 6px;
         }
-        .breadcrumb li + li::before { content: "›"; margin-right: 6px; color: #666; }
-        .breadcrumb a { color: #e62429; text-decoration: none; }
-        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb li + li::before {
+            content: "›";
+            margin-right: 6px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #e62429;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
 
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+            h2 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            h3 {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+            p {
+                font-size: 14px;
+                line-height: 1.5;
+                text-align: justify;
+            }
+            .era {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .movie {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .movie img {
+                width: 100%;
+                max-width: 320px;
+                height: auto;
+                border-radius: 10px;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>tom holland</h1>
-    <ol class="breadcrumb" aria-label="Ruta de navegación">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../index.html#spiderman">Spider-Man</a></li>
-        <li>Tom Holland (2016–presente)</li>
-    </ol>
 
-     <p><a href="index.html">🕷️</p></a>
-    <section class="era">
+
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header role="banner">
+        <h1>Spider-Man MCU – Tom Holland</h1>
+    </header>
+
+    <nav aria-label="Ruta de navegación">
+        <ol class="breadcrumb">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.html#spiderman">Spider-Man</a></li>
+           
+            <li aria-current="page">Tom Holland (2016–presente)</li>
+        </ol>
+    </nav>
+
+
+    <a class="home-link" href="index.html" aria-label="Volver a la página de inicio de Spider-Man">🕷️</a>
+
+
+    <main id="contenido-principal">
+
+        <section class="era" aria-label="Películas de Spider-Man con Tom Holland en el MCU">
+
             <h2>Marvel Cinematic Universe – Tom Holland (2016–presente)</h2>
-            <div class="movie">
+
+     
+            <article class="movie">
                 <h3>Captain America: Civil War (2016)</h3>
-                <img src="imagenes/civil war.webp" alt="" loading="lazy">
+       
+                <img src="imagenes/civil war.webp"
+                     alt="Póster de Captain America: Civil War (2016), debut de Tom Holland como Spider-Man en el MCU"
+                     loading="lazy">
                 <p>Aunque no es una película exclusiva de Spider-Man, marca su debut en el MCU. Tony Stark recluta a un joven Peter Parker para apoyar su bando en el conflicto entre los Vengadores. Peter demuestra su valía con humor, ingenio y corazón.</p>
-            </div>
+            </article>
 
-            <div class="movie">
+            <article class="movie">
                 <h3>Spider-Man: Homecoming (2017)</h3>
-                <img src="imagenes/homecoming.webp" alt="" loading="lazy">
+                <img src="imagenes/homecoming.webp"
+                     alt="Póster de Spider-Man: Homecoming (2017) con Tom Holland como Peter Parker"
+                     loading="lazy">
                 <p>Peter intenta ser un "héroe de barrio" mientras equilibra la escuela secundaria. Se enfrenta al Buitre, un traficante de tecnología alienígena. La película destaca por su tono adolescente y su enfoque en la vida cotidiana de Peter.</p>
-            </div>
+            </article>
 
-            <div class="movie">
+            <article class="movie">
                 <h3>Spider-Man: Far From Home (2019)</h3>
-                <img src="imagenes/far from home.webp" alt="" loading="lazy">
+                <img src="imagenes/far from home.webp"
+                     alt="Póster de Spider-Man: Far From Home (2019) con Tom Holland y Jake Gyllenhaal como Mysterio"
+                     loading="lazy">
                 <p>Tras los eventos de <em>Endgame</em>, Peter viaja a Europa con sus amigos, pero es reclutado por Nick Fury para enfrentar a los Elementales. Conoce a Mysterio, quien se presenta como aliado pero esconde una agenda peligrosa. La película explora la presión de reemplazar a Iron Man.</p>
-            </div>
+            </article>
 
-            <div class="movie">
+            <article class="movie">
                 <h3>Spider-Man: No Way Home (2021)</h3>
-                <img src="imagenes/no way home.webp" alt="" loading="lazy">
+                <img src="imagenes/no way home.webp"
+                     alt="Póster de Spider-Man: No Way Home (2021), con los tres Spider-Man del multiverso"
+                     loading="lazy">
                 <p>Después de que su identidad se revele, Peter pide ayuda al Doctor Strange para borrar los recuerdos del mundo. El hechizo falla y abre el multiverso, trayendo a villanos de otras realidades y a versiones anteriores de Spider-Man. Una épica historia de redención, sacrificio y madurez.</p>
-            </div>
+            </article>
+
         </section>
+
+    </main>
+
+
+    <footer role="contentinfo">
+        <p>© 2025 Guía de Películas de Spider-Man</p>
+    </footer>
+
 </body>
 </html>

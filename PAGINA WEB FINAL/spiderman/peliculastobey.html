@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tobey Peliculas</title>
+    <meta name="description" content="Trilogía de Spider-Man protagonizada por Tobey Maguire, dirigida por Sam Raimi entre 2002 y 2007.">
+    <title>Películas de Tobey Maguire – Spider-Man</title>
     <link rel="stylesheet" href="">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,6 +33,7 @@
       ]
     }
     </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,182 +82,223 @@
       ]
     }
     </script>
+
     <style>
+       
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #111;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            
+            line-height: 1.5;
+        }
+
       
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #111;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
-}
+        h1 {
+            text-align: center;
+           
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #e62429;
+        }
 
+        h2 {
+            color: #e62429;
+            font-size: 1.6rem;
+        }
 
-h1 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 40px;
-    color: #e62429;
-}
+        h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #ff3b3b;
+        }
 
-
-.tobey {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px;
-}
-
-
-.movie {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: pointer;
-}
-
-
-.movie:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.45);
-}
-
-
-.movie img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-
-.movie h3 {
-    margin-top: 0;
-    font-size: 1.4rem;
-    color: #ff3b3b;
-}
-
-
-.movie p {
-    font-size: 0.95rem;
-    line-height: 1.4rem;
-}
-h2{
-    color: red;
-}
- .breadcrumb {
+       
+        .breadcrumb {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             list-style: none;
             margin: 12px 0;
             padding: 0 20px;
+           
             font-size: 0.85rem;
             color: #aaa;
             gap: 6px;
         }
-        .breadcrumb li + li::before { 
-            content: "›"; 
-        margin-right: 6px; color: #666; }
-        .breadcrumb a { 
-            color: #e62429; 
-            text-decoration: none; }
-        .breadcrumb a:hover { 
-            text-decoration: underline; 
+
+        .breadcrumb li + li::before {
+            content: "›";
+            margin-right: 6px;
+            color: #666;
         }
-@media (max-width: 480px) {
 
-    
-    body {
-        padding: 10px;
-        text-align: center;
-    }
+        .breadcrumb a {
+            color: #e62429;
+            text-decoration: none;
+        }
 
-    h1 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
 
-    h2 {
-        font-size: 18px;
-    }
+       
+        a:focus,
+        a:focus-visible {
+            outline: 3px solid yellow;
+            outline-offset: 2px;
+        }
 
-    h3 {
-        font-size: 16px;
-    }
+       
+        .tobey {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
 
-    p {
-        font-size: 14px;
-        line-height: 1.4;
-    }
+       
+        .movie {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
 
-    
-    .man {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .movie:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.45);
+        }
 
-    .tobey {
-        width: 100%;
-    }
+        .movie img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-   
-    .movie {
-        margin-bottom: 20px;
-        padding: 10px;
-    }
+        .movie p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
-    
-    .spider1 {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        border-radius: 8px;
-    }
+       
+        .volver {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #ff4d4d;
+            font-size: 1rem;
+            text-decoration: none;
+        }
 
-   
-    a {
-        display: inline-block;
-        margin: 10px 0;
-        font-size: 24px;
-        text-decoration: none;
-    }
-}
+        .volver:hover {
+            text-decoration: underline;
+        }
 
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                text-align: center;
+            }
+
+            h1 { font-size: 1.4rem; margin-bottom: 10px; }
+            h2 { font-size: 1.1rem; }
+            h3 { font-size: 1rem; }
+
+            p {
+                font-size: 0.875rem;
+                line-height: 1.5;
+            }
+
+            .tobey { width: 100%; }
+
+            .movie {
+                margin-bottom: 20px;
+                padding: 10px;
+            }
+
+           
+            a {
+                display: inline-block;
+                min-height: 44px;
+                line-height: 44px;
+            }
+        }
     </style>
 </head>
 <body>
-   <h1>Peliculas de Tobey Maguire</h1>
-   <p><a href="index.html">🕷️</p></a>
-   <ol class="breadcrumb" aria-label="Ruta de navegación">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../index.html#spiderman">Spider-Man</a></li>
-        <li>Tobey Maguire (2002–2007)</li>
-    </ol>
 
-   <main class="man"> 
-        <img src="" alt="">
-        <section class="tobey">
-            <h2>Tobey Maguire (2002–2007)</h2>
-            <div class="movie">
-                <h3>Spider-Man (2002)</h3>
-                <img src="imagenes/Spider_Man-945131720-large.jpg" alt="Spider-Man (2002)" class="spider1">
-                <p>Peter Parker es un estudiante tímido que, tras ser mordido por una araña radiactiva, descubre que tiene poderes sobrehumanos. Tras la muerte de su tío Ben, asume la responsabilidad de usar sus habilidades para proteger a Nueva York como Spider-Man. Enfrenta al villano Duende Verde (Norman Osborn), quien amenaza con destruir todo lo que Peter ama.</p>
-            </div>
+   
+    <header role="banner">
+        <h1>Películas de Tobey Maguire</h1>
 
-            <div class="movie">
-                <h3>Spider-Man 2 (2004)</h3>
-                <img src="imagenes/spiderman2.jpg" alt="Spider-Man 2 (2004)" class="spider1" loading="lazy">
-                <p>Peter lucha por equilibrar su vida personal con sus deberes como héroe. Sus poderes comienzan a fallar, y debe enfrentar al Doctor Octopus, un científico cuyos brazos mecánicos lo controlan. La película explora temas de sacrificio, identidad y redención.</p>
-            </div>
+       
+        <nav aria-label="Ruta de navegación">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#spiderman">Spider-Man</a></li>
+               
+                <li aria-current="page">Tobey Maguire (2002–2007)</li>
+            </ol>
+        </nav>
 
-            <div class="movie">
-                <h3>Spider-Man 3 (2007)</h3>
-                <img src="imagenes/spiderman3.jpg" alt="Spider-Man 3 (2007)" class="spider1" loading="lazy">
-                <p>Peter enfrenta nuevos enemigos: Venom (Eddie Brock), el Hombre de Arena y un Duende Verde vengativo. Un simbionte alienígena se adhiere a su traje, corrompiendo su personalidad. La película aborda la lucha interna contra la oscuridad y la importancia del perdón.</p>
+        
+        <a href="../index.html" class="volver" aria-label="Volver a la página de inicio">🕷️ Volver al inicio</a>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-tobey">
+           
+            <h2 id="titulo-tobey">Tobey Maguire (2002–2007)</h2>
+
+            <div class="tobey">
+
+                <article class="movie">
+                    <h3>Spider-Man (2002)</h3>
+                    
+                    <img src="../imagenes/Spider_Man-945131720-large.jpg"
+                         alt="Cartel de la película Spider-Man de 2002, protagonizada por Tobey Maguire">
+                    <p>
+                        Peter Parker es un estudiante tímido que, tras ser mordido por una araña
+                        radiactiva, descubre que tiene poderes sobrehumanos y decide convertirse en
+                        un héroe enmascarado para proteger Nueva York.
+                    </p>
+                </article>
+
+                <article class="movie">
+                    <h3>Spider-Man 2 (2004)</h3>
+                   
+                    <img src="../imagenes/spiderman2.jpg"
+                         alt="Cartel de la película Spider-Man 2 de 2004, con el Doctor Octopus como villano"
+                         loading="lazy">
+                    <p>
+                        Peter lucha por equilibrar su vida personal con sus deberes como héroe
+                        y debe enfrentarse al peligroso Doctor Octopus, un científico con tentáculos
+                        mecánicos fuera de control.
+                    </p>
+                </article>
+
+                <article class="movie">
+                    <h3>Spider-Man 3 (2007)</h3>
+                    <img src="../imagenes/spiderman3.jpg"
+                         alt="Cartel de la película Spider-Man 3 de 2007, con Venom y el Hombre de Arena"
+                         loading="lazy">
+                    <p>
+                        Peter enfrenta a Venom, el Hombre de Arena y el nuevo Duende Verde mientras
+                        lucha contra un simbionte alienígena que corrompe su personalidad.
+                    </p>
+                </article>
+
             </div>
         </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Guía de Películas de Spider-Man</p>
+    </footer>
+
 </body>
 </html>
