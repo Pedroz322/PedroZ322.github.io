@@ -84,21 +84,21 @@
     </script>
 
     <style>
-        /* ── Base ── */
+       
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #111;
             color: #fff;
             margin: 0;
             padding: 20px;
-            /* CORRECCIÓN: line-height mínimo 1.5 (≥150% según WCAG) */
+            
             line-height: 1.5;
         }
 
-        /* ── Encabezados ── */
+      
         h1 {
             text-align: center;
-            /* CORRECCIÓN: usar rem para respetar el tamaño de fuente del usuario */
+           
             font-size: 2.5rem;
             margin-bottom: 40px;
             color: #e62429;
@@ -115,7 +115,7 @@
             color: #ff3b3b;
         }
 
-        /* ── Breadcrumb ── */
+       
         .breadcrumb {
             display: flex;
             flex-wrap: wrap;
@@ -123,7 +123,7 @@
             list-style: none;
             margin: 12px 0;
             padding: 0 20px;
-            /* CORRECCIÓN: tamaño en rem, no px fijos */
+           
             font-size: 0.85rem;
             color: #aaa;
             gap: 6px;
@@ -144,14 +144,14 @@
             text-decoration: underline;
         }
 
-        /* CORRECCIÓN: foco visible para navegación por teclado (no ocultar con CSS) */
+       
         a:focus,
         a:focus-visible {
             outline: 3px solid yellow;
             outline-offset: 2px;
         }
 
-        /* ── Grid de películas ── */
+       
         .tobey {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -159,7 +159,7 @@
             padding: 20px;
         }
 
-        /* ── Tarjeta de película ── */
+       
         .movie {
             background: #1a1a1a;
             padding: 20px;
@@ -184,7 +184,7 @@
             line-height: 1.5;
         }
 
-        /* ── Enlace de volver ── */
+       
         .volver {
             display: inline-block;
             margin-bottom: 1rem;
@@ -197,7 +197,7 @@
             text-decoration: underline;
         }
 
-        /* ── Responsive ── */
+        
         @media (max-width: 480px) {
             body {
                 padding: 10px;
@@ -220,7 +220,7 @@
                 padding: 10px;
             }
 
-            /* CORRECCIÓN: los enlaces en móvil deben tener zona táctil suficiente */
+           
             a {
                 display: inline-block;
                 min-height: 44px;
@@ -231,34 +231,34 @@
 </head>
 <body>
 
-    <!-- CORRECCIÓN: role="banner" para identificar la cabecera principal -->
+   
     <header role="banner">
         <h1>Películas de Tobey Maguire</h1>
 
-        <!-- CORRECCIÓN: nav con aria-label para identificar el tipo de navegación -->
+       
         <nav aria-label="Ruta de navegación">
             <ol class="breadcrumb">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../index.html#spiderman">Spider-Man</a></li>
-                <!-- CORRECCIÓN: aria-current="page" en el elemento activo del breadcrumb -->
+               
                 <li aria-current="page">Tobey Maguire (2002–2007)</li>
             </ol>
         </nav>
 
-        <!-- CORRECCIÓN: aria-label descriptivo en el enlace de volver -->
+        
         <a href="../index.html" class="volver" aria-label="Volver a la página de inicio">🕷️ Volver al inicio</a>
     </header>
 
     <main>
         <section aria-labelledby="titulo-tobey">
-            <!-- CORRECCIÓN: id para asociar el aria-labelledby de la sección -->
+           
             <h2 id="titulo-tobey">Tobey Maguire (2002–2007)</h2>
 
             <div class="tobey">
 
                 <article class="movie">
                     <h3>Spider-Man (2002)</h3>
-                    <!-- CORRECCIÓN: alt descriptivo (imagen es contenido, no decorativa) -->
+                    
                     <img src="../imagenes/Spider_Man-945131720-large.jpg"
                          alt="Cartel de la película Spider-Man de 2002, protagonizada por Tobey Maguire">
                     <p>
@@ -270,7 +270,7 @@
 
                 <article class="movie">
                     <h3>Spider-Man 2 (2004)</h3>
-                    <!-- CORRECCIÓN: loading="lazy" en imágenes que no son visibles al cargar -->
+                   
                     <img src="../imagenes/spiderman2.jpg"
                          alt="Cartel de la película Spider-Man 2 de 2004, con el Doctor Octopus como villano"
                          loading="lazy">

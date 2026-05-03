@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- ACCESIBILIDAD: lang="es" para indicar el idioma principal de la página (pauta 10 – legibilidad) -->
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ACCESIBILIDAD: Título descriptivo de la página (pauta 8 – navegable) -->
+    
     <title>The Amazing Spider-Man – Andrew Garfield (2012–2014) | Guía Spider-Man</title>
-    <!-- ACCESIBILIDAD: Meta descripción para comprensión del contenido (pauta 10) -->
+   
     <meta name="description" content="Películas de Spider-Man protagonizadas por Andrew Garfield: The Amazing Spider-Man (2012) y The Amazing Spider-Man 2 (2014).">
 
     <script type="application/ld+json">
@@ -56,7 +56,7 @@
     </script>
 
     <style>
-        /* ACCESIBILIDAD: Estilos para el enlace de saltar al contenido (pauta 8) */
+        
         .skip-link {
             position: absolute;
             top: -40px;
@@ -114,7 +114,7 @@
             box-shadow: 0 0 25px rgba(0, 174, 255, 0.45);
         }
 
-        /* ACCESIBILIDAD: Estilo de foco visible para navegación por teclado (pauta 5) */
+        
         .movie:focus-within {
             outline: 3px solid #2aa7ff;
             outline-offset: 2px;
@@ -137,7 +137,7 @@
             line-height: 1.4rem;
         }
 
-        /* ACCESIBILIDAD: Enlace de inicio con tamaño adecuado para zona táctil (pauta 9) */
+       
         .home-link {
             display: inline-block;
             font-size: 2rem;
@@ -152,7 +152,7 @@
             border-radius: 4px;
         }
 
-        /* Breadcrumb */
+
         .breadcrumb {
             display: flex;
             flex-wrap: wrap;
@@ -222,39 +222,38 @@
 </head>
 <body>
 
-    <!-- ACCESIBILIDAD: Enlace de saltar al contenido (pauta 8 – navegable) -->
+    
     <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-    <!-- ACCESIBILIDAD: <header> con role="banner" (pauta semántica / robustez) -->
+
     <header role="banner">
         <h1>The Amazing Spider-Man – Andrew Garfield</h1>
     </header>
-
-    <!-- ACCESIBILIDAD: Breadcrumb con nav y aria-label descriptivo (pauta 8) -->
+ 
     <nav aria-label="Ruta de navegación">
         <ol class="breadcrumb">
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../index.html#spiderman">Spider-Man</a></li>
-            <!-- ACCESIBILIDAD: Página actual marcada con aria-current (pauta 8) -->
+           
             <li aria-current="page">Andrew Garfield (2012–2014)</li>
         </ol>
     </nav>
 
-    <!-- ACCESIBILIDAD: Enlace de inicio con aria-label descriptivo, estructura HTML correcta (pauta 1 y 8) -->
+ 
     <a class="home-link" href="index/index.html" aria-label="Volver a la página de inicio de Spider-Man">🕷️</a>
 
-    <!-- ACCESIBILIDAD: <main> con id para el enlace de saltar al contenido (pauta 8) -->
+   
     <main id="contenido-principal">
 
-        <!-- ACCESIBILIDAD: <section> con aria-label para identificar la región (pauta semántica) -->
+        
         <section class="era" aria-label="Películas de The Amazing Spider-Man con Andrew Garfield">
 
             <h2>The Amazing Spider-Man – Andrew Garfield (2012–2014)</h2>
 
-            <!-- ACCESIBILIDAD: <article> para contenido autónomo (cada película) -->
+            
             <article class="movie">
                 <h3>The Amazing Spider-Man (2012)</h3>
-                <!-- ACCESIBILIDAD: alt descriptivo de la imagen (pauta 1 – alternativas textuales) -->
+                
                 <img src="imagenes/descarga.webp"
                      alt="Póster oficial de The Amazing Spider-Man (2012) con Andrew Garfield como Spider-Man"
                      loading="lazy">
@@ -263,7 +262,7 @@
 
             <article class="movie">
                 <h3>The Amazing Spider-Man 2 (2014)</h3>
-                <!-- ACCESIBILIDAD: alt descriptivo (pauta 1) -->
+               
                 <img src="imagenes/amazing 2.webp"
                      alt="Póster oficial de The Amazing Spider-Man 2 (2014) con Andrew Garfield y Emma Stone"
                      loading="lazy">
@@ -278,7 +277,7 @@
 
     </main>
 
-    <!-- ACCESIBILIDAD: <footer> con role="contentinfo" (pauta semántica) -->
+   
     <footer role="contentinfo">
         <p>© 2025 Guía de Películas de Spider-Man</p>
     </footer>
