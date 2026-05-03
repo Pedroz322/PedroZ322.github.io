@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #ff2a2a; /* rojo Venom */
+}
+
+.era h2 {
+    margin-left: 10px;
+    color: #ff5c5c;
+}
+
+.era {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.movie {
+    background: #141414;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+}
+
+.movie:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    color: #ff3b3b;
+}
+
+.movie p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+
+/* LINKS */
+a {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .era {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie {
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .movie img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+
+    a {
+        display: inline-block;
+        font-size: 24px;
+        margin: 10px 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="era">
+    <h2>Venom – Universo Sony (2018–2021)</h2>
+     <p><a href="index.html">🕷️</p></a>
+
+    <div class="movie">
+        <h3>Venom (2018)</h3>
+        <img src="imagenes/venom.jpeg" alt="Venom 2018" loading="lazy">
+        <p>Eddie Brock, un periodista caído en desgracia, investiga a la corporación Life Foundation, dirigida por el científico Carlton Drake. Durante su investigación, Eddie entra en contacto con un simbionte alienígena llamado Venom, que se fusiona con él y le otorga habilidades sobrehumanas.
+
+Aunque al principio su relación es caótica, ambos aprenden a trabajar juntos mientras se enfrentan a Riot, otro simbionte mucho más violento que amenaza con invadir la Tierra. Eddie y Venom terminan convirtiéndose en un extraño pero eficaz equipo.</p>
+    </div>
+
+    <div class="movie">
+        <h3>Venom: Let There Be Carnage (2021)</h3>
+        <img src="imagenes/Venom2.jpg" alt="Venom 2" loading="lazy">
+        <p>Eddie Brock intenta adaptarse a su vida compartida con Venom mientras retoma su carrera como periodista. Todo cambia cuando entrevista al asesino en serie Cletus Kasady, quien termina fusionándose con otro simbionte y se convierte en Carnage, una criatura aún más peligrosa y caótica.
+
+Carnage, junto a su compañera Shriek, desata el caos en la ciudad, obligando a Eddie y Venom a dejar de lado sus diferencias para detenerlos. La batalla final pone a prueba su relación, consolidándolos como un equipo único y letal.</p>
+    </div>
+
+</section>
+</body>
+</html>
