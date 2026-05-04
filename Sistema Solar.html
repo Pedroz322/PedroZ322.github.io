@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad Didáctica: El Sistema Solar | URJC</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #c8102e; 
+            --secondary: #fdb813; 
+            --bg-deep: #05070a;
+            --bg-card: #0b0f19;
+            --text-main: #f4f4f4;
+            --text-dim: #9ca3af;
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Lato', sans-serif;
+            height: 100vh;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        #starfield {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        .presentation-container {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            max-height: 700px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide.prev {
+            transform: translateX(-100%) rotateY(20deg);
+            opacity: 0;
+        }
+
+        .slide.next {
+            transform: translateX(100%) rotateY(-20deg);
+            opacity: 0;
+        }
+
+
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .urjc-tag {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            border-left: 6px solid var(--primary);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        p { font-size: 1.1rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 1rem; }
+        strong { color: var(--secondary); }
+        ul { list-style: none; margin-top: 1rem; }
+        li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: var(--text-dim); }
+        li::before { content: '→'; position: absolute; left: 0; color: var(--primary); }
+
+
+        .tile-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .tile {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        .tile:hover { transform: translateY(-5px); background: rgba(255,255,255,0.06); }
+        .tile i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
+
+        .timeline { position: relative; display: flex; justify-content: space-between; padding-top: 3rem; margin-top: 2rem; }
+        .timeline::after { content: ''; position: absolute; top: 4.2rem; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.1); }
+        .timeline-item { flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 1rem; }
+        .dot { width: 16px; height: 16px; background: var(--primary); border-radius: 50%; margin: 0 auto 1.5rem; border: 4px solid var(--bg-card); outline: 2px solid rgba(255,255,255,0.1); }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; border-radius: 8px; overflow: hidden; }
+        th { background: var(--primary); text-align: left; padding: 1rem; font-size: 0.9rem; }
+        td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }
+
+        .image-box { border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); height: 100%; min-height: 250px; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .chart-bar { margin-bottom: 1.5rem; }
+        .bar-label { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+        .bar-bg { background: #1f2937; height: 12px; border-radius: 6px; overflow: hidden; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0; transition: width 1.5s ease-out; }
+
+        /* --- Controles --- */
+        .controls {
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-btns { display: flex; gap: 1rem; }
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .nav-btn:hover:not(:disabled) { background: var(--primary); }
+        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: #444; }
+
+        .progress-container { flex-grow: 1; margin: 0 3rem; background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; position: relative; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+        .slide-counter { font-size: 0.9rem; color: var(--text-dim); min-width: 60px; text-align: right; }
+
+        @media (max-width: 900px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .slide { padding: 2rem; height: 85vh; width: 95%; }
+            .controls { padding: 1rem; }
+            .progress-container { margin: 0 1rem; }
+            .slide-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="starfield"></canvas>
+
+    <div class="presentation-container" id="presentation">
+        
+        <div class="slide active" id="slide-0">
+            <div class="urjc-tag">URJC | INNOVACIÓN EDUCATIVA</div>
+            <div style="text-align: center; margin: auto;">
+                <h1 style="font-size: clamp(2rem, 5vw, 4rem); border-bottom: 4px solid var(--primary); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                    EL SISTEMA SOLAR
+                </h1>
+                <p style="font-size: 1.4rem; color: var(--text-main); font-weight: 300;">Proyecto Final: Informática y competencia digital</p>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 3rem; text-align: left;">
+                    <div>
+                        <span style="color: var(--primary); font-weight: 700;">AUTORES</span>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">P. Carrasco, M. Gutiérrez,<br>M. Merchante, D. Minaya, M. Solano</p>
+                    </div>
+                    <div>
+                        <span style="color: var(--primary); font-weight: 700;">DOCENTES</span>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Diana Pérez Marín<br>Ascensión Lovillo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   
+        <div class="slide" id="slide-1">
+            <h2 class="slide-title">Descripción de la Unidad</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Nivel: 3º Primaria</h3>
+                    <p>Propuesta didáctica diseñada para el área de <strong>Ciencias de la Naturaleza</strong>, enfocada en la comprensión de nuestra posición en el universo.</p>
+                    <ul>
+                        <li><strong>Temporalización:</strong> 6-7 sesiones de 50 min.</li>
+                        <li><strong>Metodología:</strong> ABP y Pensamiento Computacional.</li>
+                        <li><strong>Contexto:</strong> Centros con dotación digital (1:1 o tablets).</li>
+                    </ul>
+                </div>
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&q=80&w=800" alt="Espacio">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide-2">
+            <h2 class="slide-title">Objetivos Didácticos</h2>
+            <div class="tile-container">
+                <div class="tile">
+                    <i class="fa-solid fa-satellite"></i>
+                    <h3>Identificar</h3>
+                    <p>Distinguir el Sol, planetas, satélites y cuerpos menores del sistema solar.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-earth-europe"></i>
+                    <h3>Comprender</h3>
+                    <p>Explicar los movimientos terrestres y su relación con el día, la noche y las estaciones.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h3>Digitalizar</h3>
+                    <p>Integrar el uso de Scratch y herramientas de IA para potenciar la curiosidad científica.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide-3">
+            <h2 class="slide-title">Competencias Clave (LOMLOE)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>COMPETENCIA</th>
+                        <th>DESCRIPCIÓN OPERATIVA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lingüística</strong></td>
+                        <td>Adquisición de léxico científico (órbita, gravedad, elíptica).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Digital</strong></td>
+                        <td>Creación de contenidos en Canva y programación básica en Scratch.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>STEM</strong></td>
+                        <td>Interpretación de escalas de distancia y tamaños relativos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conciencia Social</strong></td>
+                        <td>Valoración de la Tierra como hogar común y fomento del trabajo cooperativo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+  
+        <div class="slide" id="slide-4">
+            <h2 class="slide-title">Estructura de Contenidos</h2>
+            <div class="tile-container">
+                <div class="tile" style="border-top-color: var(--primary);">
+                    <h3>Conceptuales</h3>
+                    <p>Los planetas rocosos vs gaseosos. El Sol como motor del sistema.</p>
+                </div>
+                <div class="tile">
+                    <h3>Procedimentales</h3>
+                    <p>Uso de simuladores digitales y creación de modelos físicos.</p>
+                </div>
+                <div class="tile" style="border-top-color: var(--primary);">
+                    <h3>Actitudinales</h3>
+                    <p>Respeto por la propiedad intelectual y uso ético de la tecnología.</p>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="slide" id="slide-5">
+            <h2 class="slide-title">Metodología Activa y DUA</h2>
+            <div class="content-grid">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800" alt="Aprendizaje Activo">
+                </div>
+                <div>
+                    <p>Basamos nuestra intervención en el <strong>Diseño Universal para el Aprendizaje</strong>:</p>
+                    <div style="margin-top: 1rem;">
+                        <div style="border-left: 2px solid var(--secondary); padding-left: 1rem; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-weight: bold;">Representación:</span> Vídeos, textos, audio y modelos 3D.
+                        </div>
+                        <div style="border-left: 2px solid var(--secondary); padding-left: 1rem; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary); font-weight: bold;">Acción/Expresión:</span> Desde dibujos hasta código Scratch.
+                        </div>
+                        <div style="border-left: 2px solid var(--secondary); padding-left: 1rem;">
+                            <span style="color: var(--secondary); font-weight: bold;">Implicación:</span> Gamificación y retos grupales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <h2 class="slide-title">Secuenciación: Exploración</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <h3>Sesión 1</h3>
+                    <p><strong>Ideas Previas</strong><br>Rutina de pensamiento "Veo, Pienso, me Pregunto".</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <h3>Sesión 2</h3>
+                    <p><strong>El Sol y la Tierra</strong><br>Simulación física de la rotación.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <h3>Sesión 3</h3>
+                    <p><strong>Los Planetas</strong><br>Viaje virtual por el sistema solar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-7">
+            <h2 class="slide-title">Secuenciación: Creación</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="dot" style="background: var(--secondary);"></div>
+                    <h3>Sesión 4</h3>
+                    <p><strong>Expertos Espaciales</strong><br>Investigación cooperativa en Canva.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot" style="background: var(--secondary);"></div>
+                    <h3>Sesión 5-6</h3>
+                    <p><strong>Código Espacial</strong><br>Programación de órbitas en Scratch.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot" style="background: var(--secondary);"></div>
+                    <h3>Sesión 7</h3>
+                    <p><strong>Feria Astral</strong><br>Exposición de maquetas y proyectos.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slide" id="slide-8">
+            <h2 class="slide-title">Recursos: Scratch & IA</h2>
+            <div class="content-grid">
+                <div>
+                    <p>La integración de <strong>Scratch</strong> no es solo técnica, es pedagógica:</p>
+                    <ul>
+                        <li>Visualización de conceptos abstractos (velocidad orbital).</li>
+                        <li>Fomento de la lógica matemática y resolución de problemas.</li>
+                        <li>Empoderamiento del alumno como creador.</li>
+                    </ul>
+                    <p>Se utiliza <strong>Canva</strong> para el diseño de la identidad visual de sus proyectos.</p>
+                </div>
+                <div class="image-box" style="background: #222; display: flex; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-rocket" style="font-size: 8rem; color: var(--primary); opacity: 0.5;"></i>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="slide" id="slide-9">
+            <h2 class="slide-title">Adaptación y Accesibilidad</h2>
+            <div class="tile-container" style="grid-template-columns: 1fr 1fr;">
+                <div class="tile">
+                    <h3>Inclusión Cognitiva</h3>
+                    <p>Uso de <strong>pictogramas ARASAAC</strong> y organizadores gráficos.</p>
+                </div>
+                <div class="tile" style="border-top-color: var(--primary);">
+                    <h3>Inclusión Sensorial</h3>
+                    <p>Subtitulado y maquetas táctiles de plastilina.</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; text-align: center;"><em>"Ningún alumno se queda atrás en nuestro viaje estelar."</em></p>
+        </div>
+
+   
+        <div class="slide" id="slide-10">
+            <h2 class="slide-title">Evaluación Integradora</h2>
+            <div class="content-grid">
+                <div>
+                    <div class="chart-bar">
+                        <div class="bar-label"><span>Observación y Diario</span><span>95%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="95%"></div></div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-label"><span>Proyecto Scratch</span><span>90%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="90%"></div></div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-label"><span>Presentación Canva</span><span>85%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="85%"></div></div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-label"><span>Maqueta Física</span><span>98%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="98%"></div></div>
+                    </div>
+                </div>
+                <div style="background: rgba(200,16,46,0.1); padding: 2rem; border-radius: 8px;">
+                    <h3>Criterios</h3>
+                    <p style="font-size: 0.9rem;">Se evalúa el <strong>proceso</strong> mediante rúbricas compartidas con el alumnado.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <div class="nav-btns">
+            <button class="nav-btn" id="prevBtn" disabled><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+            <button class="nav-btn" id="nextBtn">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="slide-counter" id="slideCounter">1 / 11</div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                    const bars = slide.querySelectorAll('.bar-fill');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                } else if (index < currentSlide) {
+                    slide.classList.add('prev');
+                } else {
+                    slide.classList.add('next');
+                }
+            });
+
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = ${progress}%;
+            slideCounter.innerText = ${currentSlide + 1} / ${slides.length};
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextBtn.click();
+            if (e.key === 'ArrowLeft') prevBtn.click();
+        });
+
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStars();
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fill();
+                star.y += star.speed;
+                if (star.y > canvas.height) star.y = 0;
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        window.addEventListener('resize', resize);
+        
+        window.onload = () => {
+            resize();
+            drawStars();
+            updateSlides();
+        };
+
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            if (touchendX < touchstartX - 50) nextBtn.click();
+            if (touchendX > touchstartX + 50) prevBtn.click();
+        });
+
+    </script>
+</body>
+</html>
